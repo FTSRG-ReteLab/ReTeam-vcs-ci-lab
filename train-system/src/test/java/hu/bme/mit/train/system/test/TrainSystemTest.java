@@ -1,5 +1,6 @@
 package hu.bme.mit.train.system.test;
 
+import hu.bme.mit.train.controller.TachoGraph;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,6 +15,7 @@ public class TrainSystemTest {
 	TrainController controller;
 	TrainSensor sensor;
 	TrainUser user;
+	TachoGraph tachoGraph;
 	
 	@Before
 	public void before() {
@@ -54,6 +56,12 @@ public class TrainSystemTest {
 	public void test3() {
 		user.overrideJoystickPosition(23);
 		Assert.assertEquals(23, user.getJoystickPosition());
+	}
+
+	@Test
+	public void test4() {
+		tachoGraph = new TachoGraph(12,23,44);
+		Assert.assertEquals(false, tachoGraph.empty());
 	}
 
 	
